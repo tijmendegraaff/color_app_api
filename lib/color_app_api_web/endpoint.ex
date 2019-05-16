@@ -2,7 +2,7 @@ defmodule ColorAppApiWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :color_app_api
 
   socket "/socket", ColorAppApiWeb.UserSocket,
-    websocket: true,
+    websocket: [timeout: 45_000],
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.
