@@ -13,3 +13,10 @@ before_script:
   - mix do ecto.create, ecto.migrate
 script:
   - mix test
+deploy:
+  provider: heroku
+  api_key:
+    secure: "JGhXfJt0U0x1xv2vrge3U1QmvJefpdQVHo8/HYCnf6Gq7kCCjtzzf1W5R/A9lbXsqaC2b7E3hZCutvAN4tB0klRl43Ki1cqwZGrRzesrYq8JQW4HqOU6S+QWbFz2SqzsCnjkgqSIbhYJgn16+tzYhfZys0Y1B5AeKkDNdh1Z9+NPDNtvZVCYh/0iMJGtGPZkYp0Spvr7vOYTWkh6Iv7vj4XaMpugZE8W4/WrqG0AvQ0tke0v0F/NRHHjW3xUT2M2rr1MhuncolepyIvsOgz+p2tSbXUKZySkBgA1p2mK+cdPhh+RIwtjNXeLhnwy3GAWyH90ZeqiMrcJ3MEuhxR/MCkVYK87IWWKmDQZB2D3ZFtWG0svD2n7HXwuODMEmW4cXNQ/Djrw8v95A3SRpJV+YLPT+WzQ6Wt+L61g4nniDwXK2KTcYt4kT6N1SmrXSde9mxMV2THduGNmVa4xoC+ylIoWJKNwuOPg67lChtxyOPZX77loWaZYJM19rRtkTwQA9QNo8Bg+QDNpDSl3/Ds7e1tjBns7OBba2jBOIdMlaLXELW274Pg2gOSL5JsUpvqlxdyxGzAvMCC7WR5XB55GqHOjD8F3FsvN0y13Oqtyk2BXrlewRxl/014+NLhn+SK/MLkotlnENig0aQujKLZ6PdTSkG+/UNnPWj5uwfLEJdw="
+  app: afternoon-mesa-94126
+  on:
+    repo: tijmendegraaff/color_app_api
