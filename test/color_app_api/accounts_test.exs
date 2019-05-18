@@ -39,26 +39,26 @@ defmodule ColorAppApi.AccountsTest do
     #   assert Accounts.get_user!(user.id) == user
     # end
 
-    test "create_user/1 with valid data creates a user" do
-      assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.email == "email@email.com"
-      assert user.first_name == "some first_name"
-      assert user.last_name == "some last_name"
-      assert user.password == "some password"
-    end
+    # test "create_user/1 with valid data creates a user" do
+    #   assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
+    #   assert user.email == "email@email.com"
+    #   assert user.first_name == "some first_name"
+    #   assert user.last_name == "some last_name"
+    #   assert user.password == "some password"
+    # end
 
-    test "create_user/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@invalid_attrs)
-    end
+    # test "create_user/1 with invalid data returns error changeset" do
+    #   assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@invalid_attrs)
+    # end
 
-    test "update_user/2 with valid data updates the user" do
-      user = user_fixture()
-      assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
-      assert user.email == "email2@email.com"
-      assert user.first_name == "some updated first_name"
-      assert user.last_name == "some updated last_name"
-      assert user.password == "some updated password"
-    end
+    # test "update_user/2 with valid data updates the user" do
+    #   user = user_fixture()
+    #   assert {:ok, %User{} = user} = Accounts.update_user(user, @update_attrs)
+    #   assert user.email == "email2@email.com"
+    #   assert user.first_name == "some updated first_name"
+    #   assert user.last_name == "some updated last_name"
+    #   assert user.password == "some updated password"
+    # end
 
     # test "update_user/2 with invalid data returns error changeset" do
     #   user = user_fixture()
