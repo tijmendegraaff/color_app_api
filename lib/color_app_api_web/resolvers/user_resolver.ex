@@ -1,5 +1,6 @@
 defmodule ColorAppApiWeb.Resolvers.UserResolver do
   alias ColorAppApi.Accounts
+  alias ColorAppApi.Guardian
 
   def users(_, _, _) do
     {:ok, Accounts.list_users()}
@@ -7,5 +8,12 @@ defmodule ColorAppApiWeb.Resolvers.UserResolver do
 
   def create_user(_, %{input: input}, _) do
     Accounts.create_user(input)
+  end
+
+  def login(_, %{input: input}, _) do
+    with {:ok, user} <- Accounts.Session.authenticate(input),
+         {:ok, jwt, _} <- Guardian.encode_and_sign(user) do
+      {:ok, %{token: jwt, user: user}}
+    end
   end
 end
