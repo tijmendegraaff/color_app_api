@@ -21,6 +21,10 @@ config :color_app_api, ColorAppApi.Repo,
   ssl: true,
   url: System.get_env("DATABASE_URL")
 
+config :color_app_api, ColorAppApi.Guardian,
+  issuer: "color_app_api",
+  secret_key: System.get_env("GUARDIAN_SECRET")
+
 # Do not print debug messages in production
 config :logger, level: :info
 

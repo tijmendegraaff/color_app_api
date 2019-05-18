@@ -20,5 +20,11 @@ defmodule ColorAppApiWeb.Schema do
       arg(:input, non_null(:user_input_type))
       resolve(&Resolvers.UserResolver.create_user/3)
     end
+
+    @desc "Login a user and return a JWT token"
+    field :create_session, type: :session_type do
+      arg(:input, non_null(:session_input_type))
+      resolve(&Resolvers.UserResolver.login/3)
+    end
   end
 end
