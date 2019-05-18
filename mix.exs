@@ -43,6 +43,10 @@ defmodule ColorAppApi.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.1"},
       {:argon2_elixir, "~> 2.0"},
+      {:absinthe, "~> 1.4"},
+      {:absinthe_plug, "~> 1.4"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_phoenix, "~> 1.4"},
       {:ex_machina, "~> 2.3", only: :test},
       {:faker, "~> 0.12", only: :test},
       {:ex_spec, "~> 2.0", only: :test}
