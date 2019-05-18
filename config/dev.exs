@@ -22,6 +22,10 @@ config :color_app_api, ColorAppApiWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :color_app_api, ColorAppApi.Guardian,
+  issuer: "color_app_api",
+  secret_key: "z0n6QuPfPxLOhSbFNx8U7LbYPc6mCBNyMGR+Zurl4zkIRSzJg4mi6vL+cSiT1xn"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
