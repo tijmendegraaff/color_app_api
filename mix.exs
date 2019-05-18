@@ -42,7 +42,10 @@ defmodule ColorAppApi.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.1"},
-      {:argon2_elixir, "~> 2.0"}
+      {:argon2_elixir, "~> 2.0"},
+      {:ex_machina, "~> 2.3", only: :test},
+      {:faker, "~> 0.12", only: :test},
+      {:ex_spec, "~> 2.0", only: :test}
     ]
   end
 
