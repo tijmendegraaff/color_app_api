@@ -18,6 +18,17 @@ defmodule ColorAppApi.Accounts.User do
     |> cast(attrs, [:first_name, :last_name, :email, :password])
     |> validate_required([:first_name, :last_name, :email, :password])
     |> validate_format(:email, ~r/@/)
+    |> update_change(:email, &String.downcase(&1))
+    |> validate_length(:password, min: 6, max: 100)
     |> unique_constraint(:email)
+    |> hash_password()
+  end
+
+  defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, Argon2.add_hash(password))
+  end
+
+  defp hash_password(changeset) do
+    changeset
   end
 end
