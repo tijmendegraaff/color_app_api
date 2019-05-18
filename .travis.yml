@@ -9,7 +9,7 @@ addons:
 env:
   - MIX_ENV=test
 before_script:
-  - cp config/travis_ci_test.exs config/test.exs
+  - cp config/travis_ci.exs config/test.exs
   - mix do ecto.create, ecto.migrate
 script:
   - mix test
