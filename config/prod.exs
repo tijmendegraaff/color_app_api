@@ -12,6 +12,7 @@ use Mix.Config
 config :color_app_api, ColorAppApiWeb.Endpoint,
   load_from_system_env: true,
   url: [scheme: "https", host: "afternoon-mesa-94126", port: 443],
+  http: [port: {:system, "PORT"}],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
