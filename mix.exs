@@ -44,6 +44,7 @@ defmodule ColorAppApi.MixProject do
       {:cors_plug, "~> 1.5"},
       {:comeonin, "~> 5.1"},
       {:argon2_elixir, "~> 2.0"},
+      {:guardian, "~> 1.2"},
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
       {:absinthe_ecto, "~> 0.1.3"},
