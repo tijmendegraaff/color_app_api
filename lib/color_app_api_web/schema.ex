@@ -15,6 +15,7 @@ defmodule ColorAppApiWeb.Schema do
   query do
     @desc "Get a list of all users"
     field :users, list_of(:user_type) do
+      middleware(Middleware.Authorize)
       resolve(&Resolvers.UserResolver.users/3)
     end
   end
