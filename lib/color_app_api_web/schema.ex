@@ -5,8 +5,6 @@ defmodule ColorAppApiWeb.Schema do
 
   import_types(ColorAppApiWeb.Schema.Types)
 
-  alias ColorAppApiWeb.Resolvers
-
   query do
     @desc "Get a list of all users"
     field :users, list_of(:user_type) do
@@ -16,7 +14,7 @@ defmodule ColorAppApiWeb.Schema do
 
   mutation do
     @desc "Create a new user"
-    field :user, :user_type do
+    field :create_user, :session_type do
       arg(:input, non_null(:user_input_type))
       resolve(&Resolvers.UserResolver.create_user/3)
     end
