@@ -4,6 +4,7 @@ defmodule ColorAppApiWeb.Router do
   pipeline :api do
     plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
+    plug ColorAppApiWeb.Plugs.Context
   end
 
   scope "/api" do

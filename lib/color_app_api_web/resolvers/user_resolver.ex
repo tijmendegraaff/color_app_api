@@ -2,7 +2,7 @@ defmodule ColorAppApiWeb.Resolvers.UserResolver do
   alias ColorAppApi.Accounts
   alias ColorAppApi.Guardian
 
-  def users(_, _, _) do
+  def users(_, _, %{context: %{user: user}}) do
     {:ok, Accounts.list_users()}
   end
 

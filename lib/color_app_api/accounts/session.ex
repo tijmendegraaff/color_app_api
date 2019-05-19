@@ -15,7 +15,7 @@ defmodule ColorAppApi.Accounts.Session do
     Argon2.verify_pass(params.password, password_hash)
   end
 
-  defp check_password(_, params) do
+  defp check_password(_, _params) do
     false
   end
 end
