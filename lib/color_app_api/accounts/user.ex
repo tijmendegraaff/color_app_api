@@ -7,6 +7,7 @@ defmodule ColorAppApi.Accounts.User do
     field :first_name, :string
     field :last_name, :string
     field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
     field :password_hash, :string
 
     timestamps()
@@ -20,6 +21,7 @@ defmodule ColorAppApi.Accounts.User do
     |> validate_format(:email, ~r/@/)
     |> update_change(:email, &String.downcase(&1))
     |> validate_length(:password, min: 6, max: 100)
+    |> validate_confirmation(:password, message: "passwords don't match")
     |> unique_constraint(:email)
     |> hash_password()
   end
