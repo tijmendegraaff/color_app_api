@@ -1,3 +1,3 @@
 # ColorAppApi TODO list
 
-- Check password hasing in test mode, config hashing
+[] Check error handling. Error message transform doesn't always work
