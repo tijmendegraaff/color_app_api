@@ -14,5 +14,6 @@ defmodule ColorAppApiWeb.Schema.Types.UserType do
     field(:last_name, non_null(:string))
     field(:email, non_null(:string))
     field(:password, non_null(:string))
+    field(:password_confirmation, non_null(:string))
   end
 end
