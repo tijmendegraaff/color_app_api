@@ -2,8 +2,15 @@ defmodule ColorAppApiWeb.Schema do
   use Absinthe.Schema
 
   alias ColorAppApiWeb.Resolvers
+  alias ColorAppApiWeb.Schema.Middleware
 
   import_types(ColorAppApiWeb.Schema.Types)
+
+  def middleware(middleware, _field, %{identifier: :mutation}) do
+    middleware ++ [Middleware.ChangesetErrors]
+  end
+
+  def middleware(middleware, _field, _object), do: middleware
 
   query do
     @desc "Get a list of all users"
