@@ -7,7 +7,10 @@ defmodule ColorAppApiWeb.Resolvers.UserResolver do
   end
 
   def create_user(_, %{input: input}, _) do
-    Accounts.create_user(input)
+    with {:ok, user} <- Accounts.create_user(input),
+         {:ok, jwt, _} <- Guardian.encode_and_sign(user) do
+      {:ok, %{token: jwt, user: user}}
+    end
   end
 
   def login(_, %{input: input}, _) do
