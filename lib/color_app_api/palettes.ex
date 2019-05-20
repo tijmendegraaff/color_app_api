@@ -20,7 +20,7 @@ defmodule ColorAppApi.Palettes do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_palette(attrs \\ %{}) do
+  def create_color_palette(attrs \\ %{}) do
     %Palette{}
     |> Palette.changeset(attrs)
     |> Repo.insert()
