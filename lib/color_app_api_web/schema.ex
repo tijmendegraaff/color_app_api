@@ -32,5 +32,11 @@ defmodule ColorAppApiWeb.Schema do
       arg(:input, non_null(:session_input_type))
       resolve(&Resolvers.UserResolver.login/3)
     end
+
+    @desc "Create a color palette"
+    field :create_palette, type: :palette_type do
+      arg(:input, non_null(:palette_input_type))
+      resolve(&Resolvers.PaletteResolver.create_palette/3)
+    end
   end
 end
