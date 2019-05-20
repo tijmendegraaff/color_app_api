@@ -1,6 +1,7 @@
 defmodule ColorAppApi.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias ColorAppApi.Palettes.Palette
 
   schema "users" do
     field :email, :string
@@ -9,6 +10,8 @@ defmodule ColorAppApi.Accounts.User do
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
     field :password_hash, :string
+
+    has_many(:palettes, Palette)
 
     timestamps()
   end
