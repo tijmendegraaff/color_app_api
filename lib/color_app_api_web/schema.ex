@@ -13,10 +13,10 @@ defmodule ColorAppApiWeb.Schema do
   def middleware(middleware, _field, _object), do: middleware
 
   query do
-    @desc "Get a list of all users"
-    field :users, list_of(:user_type) do
+    @desc "Return the current user"
+    field :current_user, :user_type do
       middleware(Middleware.Authorize)
-      resolve(&Resolvers.UserResolver.users/3)
+      resolve(&Resolvers.UserResolver.user/3)
     end
   end
 
@@ -35,8 +35,16 @@ defmodule ColorAppApiWeb.Schema do
 
     @desc "Create a color palette"
     field :create_palette, type: :palette_type do
+      middleware(Middleware.Authorize)
       arg(:input, non_null(:palette_input_type))
       resolve(&Resolvers.PaletteResolver.create_palette/3)
+    end
+
+    @desc "Delete a color palette"
+    field :delete_palette, type: :palette_type do
+      middleware(Middleware.Authorize)
+      arg(:palette_id, non_null(:id))
+      resolve(&Resolvers.PaletteResolver.delete_palette/3)
     end
   end
 end
