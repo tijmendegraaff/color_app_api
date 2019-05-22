@@ -6,7 +6,7 @@ defmodule ColorAppApiWeb.Schema.Types.PaletteType do
     field(:id, :id)
     field(:name, :string)
     field(:emoji, :string)
-    field :colors, list_of(:color_type), resolve: assoc(:colors)
+    field(:colors, list_of(:color_type), resolve: assoc(:colors))
   end
 
   input_object :palette_input_type do
