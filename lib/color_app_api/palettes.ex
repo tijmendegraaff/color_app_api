@@ -44,4 +44,12 @@ defmodule ColorAppApi.Palettes do
 
     color
   end
+
+  def get_palette!(id) do
+    Repo.get!(Palette, id)
+  end
+
+  def delete_palette(%Palette{} = palette) do
+    Repo.delete(palette)
+  end
 end
